@@ -15,21 +15,49 @@
         header {
             background-color: #4CAF50;
             color: white;
-            padding: 10px 0;
+            padding: 20px 0;
             text-align: center;
         }
         nav {
-            margin: 0;
-            padding: 10px;
             background-color: #333;
+            color: white;
+            overflow: hidden;
         }
         nav a {
+            float: left;
+            display: block;
             color: white;
+            text-align: center;
+            padding: 14px 16px;
             text-decoration: none;
-            margin: 0 15px;
+        }
+        nav a:hover {
+            background-color: #575757;
         }
         .container {
             padding: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
         }
         footer {
             background-color: #333;
@@ -40,24 +68,34 @@
             width: 100%;
             bottom: 0;
         }
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+            font-size: 24px;
+        }
+        .social-links a:hover {
+            color: #4CAF50;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome To The Hell</h1>
+        <h1>Welcome to The Hell</h1>
     </header>
 
     <nav>
         <a href="#home">Home</a>
         <a href="#about">About</a>
-        <a href="#services">Service</a>
+        <a href="#gallery">Gallery</a>
         <a href="#contact">Contact</a>
     </nav>
 
     <div class="container">
         <section id="home">
             <h2>Home</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec nulla fringilla, vulputate ligula sed, ultrices lorem..</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec nulla fringilla, vulputate ligula sed, ultrices lorem.</p>
         </section>
 
         <section id="about">
@@ -65,18 +103,23 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec nulla fringilla, vulputate ligula sed, ultrices lorem. Aenean neque mauris, iaculis vel varius a, pulvinar a ex. Pellentesque finibus est in magna lobortis, eget finibus lorem finibus. Suspendisse at metus vitae est tempor euismod. Curabitur consequat ipsum metus, consectetur egestas ex pharetra nec. Aliquam lacinia ex in quam semper eleifend. Aliquam tempus arcu eu ipsum eleifend, et auctor ipsum volutpat. Cras tempus posuere velit et malesuada. Donec cursus justo tortor, quis mollis est volutpat at. Etiam pretium convallis lacus vel convallis. Pellentesque a neque lobortis, sodales est non, consectetur odio. Maecenas commodo dolor massa, vel lobortis tellus pretium eget. Maecenas blandit ex eros, sed interdum turpis maximus id. Ut ac est tellus.</p>
         </section>
 
-        <section id="services">
-            <h2>Service</h2>
-            <ul>
-                <li>Service 1</li>
-                <li>Service 2</li>
-                <li>Service 3</li>
-            </ul>
+        <section id="gallery">
+            <h2>Galeri</h2>
+            <div class="gallery">
+                <img src="https://via.placeholder.com/600x400" alt="Gambar 1">
+                <img src="https://via.placeholder.com/600x400" alt="Gambar 2">
+                <img src="https://via.placeholder.com/600x400" alt="Gambar 3">
+            </div>
         </section>
 
         <section id="contact">
-            <h2>Contact</h2>
-            <p>Contact us <a href="insatgram.com/superxen_">Here</a>.</p>
+            <h2>Contact Us</h2>
+            <div class="social-links">
+                <a href="https://www.instagram.com/superxen_" target="_blank" rel="noopener noreferrer">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 30px; vertical-align: middle;">
+                    Instagram
+                </a>
+            </div>
         </section>
     </div>
 
