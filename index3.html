@@ -1,0 +1,380 @@
+<html>
+  <head>
+    <title>Kanojo Birthday</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hiragino+Kaku+Gothic+Pro&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background-image: url('https://wallpapercave.com/wp/wp8669439.jpg');
+        background-size: cover;
+        background-position: center;
+        font-family: 'Hiragino Kaku Gothic Pro', 'Yu Gothic', 'Mplus 1p', 'MS Gothic', sans-serif;
+        transition: background-color 1s;
+      }
+
+      .gudetama-container {
+        width: 85%;
+        height: 850px;
+        margin: 40px;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+      .gudetama-image {
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        margin-top: 30PX;
+      }
+      .gudetama-text {
+        font-size: 50px;
+        font-weight: bold;
+        margin-bottom: 30px;
+        font-family:cursive;
+      }
+      .gudetama-button {
+        font-size: 30px;
+        background-color: #ff9900;
+        color: #fff;
+        padding: 20px 40px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+      }
+      .gudetama-button:hover {
+        background-color: #ffcc00;
+      }
+      .gudetama-wish-container {
+        font-size: 45px;
+        font-weight: bold;
+        margin-bottom: 50px;
+        animation: fadeIn 2s;
+        position: relative;
+        animation: loading 1s;
+      }
+
+      @keyframes loading {
+        0% {
+          opacity: 0.5;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.5;
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .gudetama-wish-container::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 5px;
+        background-color: #ff9900;
+        margin-bottom: 10px;
+        animation: slideIn 2s;
+      }
+
+      @keyframes slideIn {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      .gudetama-wish-text {
+        animation: bounce 2s;
+      }
+
+      @keyframes bounce {
+        0% {
+          transform: translateY(-20px);
+        }
+        50% {
+          transform: translateY(20px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      .gudetama-wish-confetti {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: confetti 2s;
+      }
+
+      @keyframes confetti {
+        0% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        50% {
+          opacity: 1;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+      }
+
+      .gudetama-wish-confetti::before {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-color: #ff9900;
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
+
+      .gudetama-wish-confetti::after {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-color: #ff9900;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        animation: confettiDelay 2s;
+        animation-delay: 0.5s;
+      }
+
+      @keyframes confettiDelay {
+        0% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        50% {
+          opacity: 1;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+
+      }
+      .balloon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #f2c2c7;
+      animation: float 3s infinite 1s;
+      z-index: -1;
+    }
+    .fireworks {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .explosion {
+      background-color: #FFFFFF;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #fff;
+      animation: explode 2s infinite;
+      transform-origin: 50% 50%;
+    }
+
+    @keyframes explode {
+      0% {
+        transform: scale(0.1);
+        opacity: 0;
+      }
+      50% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(0.1);
+        opacity: 0;
+      }
+    }
+    .explosion-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2000;
+    }
+
+    .final-message {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-size: 60px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 0 10px #ff9900;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="gudetama-container">
+      <audio autoplay loop>
+        <source src="https://x3n99.github.io/Blessing%E6%B7%B1%E6%A0%B9.mp3" type="audio/mpeg">
+      </audio>
+      <img src="https://mystickermania.com/cdn/stickers/gudetama/gudetama-balloon-512x512.png" alt="Gudetama" class="gudetama-image">
+      <p class="gudetama-text">HAPPY BIRTHDAY!!!</p>
+      <button class="gudetama-button" onclick="gudetamaWish()">ここ押して</button>
+      <div id="gudetama-wish" class="gudetama-wish-container">
+        <span class="gudetama-wish-text"></span>
+        <span class="gudetama-wish-confetti"></span>
+      </div>
+    </div>
+    <div id="balloon-container"></div>
+    <div class="fireworks"></div>
+
+    <script>
+      const fireworks = document.querySelector('.fireworks');
+      let fireworkCount = 0;
+      const maxFireworks = 1;
+
+    function createFirework() {
+      if (fireworkCount < maxFireworks){
+        const firework = document.createElement('div');
+        firework.className = 'explosion';
+        fireworks.appendChild(firework);
+        firework.style.top = `${Math.random() * window.innerHeight}px`;
+        firework.style.left = `${Math.random() * window.innerWidth}px`;
+        firework.style.animationDelay = `${Math.random() * 2}s`;
+        irework.style.animationDuration = `${Math.random() * 2 + 1}s`;
+        fireworkCount++;
+      }
+    }
+
+    setInterval(createFirework, 1000);
+      const container = document.getElementById('balloon-container');
+
+      function createBalloon() {
+        const balloon = document.createElement('div');
+        balloon.className = 'balloon';
+
+        balloon.style['background-color'] = getRandomColor();
+
+        container.appendChild(balloon);
+
+        let x = Math.random() * (window.innerWidth - 50);
+        let y = window.innerHeight;
+        let vy = Math.random() * 2 + 1;
+
+        animateBalloon(balloon, x, y, vy);
+      }
+
+      function animateBalloon(balloon, x, y, vy) {
+          balloon.style.animation = `float ${vy}s infinite ${y}s`;
+          balloon.style.top = `${y}px`;
+          balloon.style.left = `${x}px`;
+
+        setInterval(() => {
+          y -= vy;
+
+          if (y < 0) {
+            balloon.remove();
+          } else {
+            balloon.style.top = `${y}px`;
+            balloon.style.left = `${x}px`;
+          }
+        }, 16);
+      }
+
+      function getRandomColor() {
+        const colors = ['#ff69b4', '#33cc33', '#6666ff', '#ffff66', '#cc0099'];
+        return colors[Math.floor(Math.random() * colors.length)];
+      }
+      setInterval(createBalloon, 500);
+      const audio = document.querySelector('audio');
+      window.addEventListener('load', () => {
+        audio.play();
+      });
+
+      let wishIndex = 0;
+      const wishes = [
+        "カヒイイイイイ！誕生日おめでとう！！",
+        "最初に話した時まじでこうなるのは思わなかった",
+        "好きになって、彼女になって、大切な人になって",
+        "毎日本当に幸せで、感謝してる",
+        "今までいい思い出をたくさん作ってくれてありがとう！",
+        "これからも一緒にたくさん楽しい思い出を作っていこうね",
+        "たまに喧嘩してるけど、お前のことずっと大好きで、ずっとずっと愛してる♡"
+      ];
+
+      function gudetamaWish() {
+        if (wishIndex >= wishes.length) {
+          wishIndex = 0;
+          exploadPage();
+        }
+        const currentWish = wishes[wishIndex];
+        const wishContainer = document.getElementById("gudetama-wish");
+        wishContainer.innerHTML = `
+          <span class="gudetama-wish-text">${currentWish}</span>
+          <span class="gudetama-wish-confetti"></span>
+        `;
+        wishIndex++;
+      }
+      function exploadPage(){
+        document.body.style.transition = 'opacity 1s';
+        document.body.style.opacity = 0;
+        const overlay = document.createElement("div");
+        overlay.style.position = "absolute";
+        overlay.style.top = "0";
+        overlay.style.left = "0";
+        overlay.style.width = "100%";
+        overlay.style.height = "100%";
+        overlay.style.backgroundColor = "#FFFFFF";
+        overlay.style.zIndex = "2000";
+
+        document.body.appendChild(overlay);
+
+        for (let i = 0; i < 20; i++){
+          const explosion = document.createElement("div");
+          explosion.className = "explosion";
+          explosion.style.top = `${Math.random() * window.innerHeight}px`;
+          explosion.style.left = `${Math.random() * window.innerWidth}px`;
+          explosion.style.animationDelay = `${Math.random() * 2}s`;
+          explosion.style.animationDuration = `${Math.random() * 2 + 1}s`;
+          overlay.appendChild(explosion);
+        }
+        setTimeout(() => {
+          document.body.innerHTML = '';
+          const finalMessage = document.createElement("div");
+          finalMessage.className = "final-message";
+          finalMessage.innerHTML = "誕生日おめでとう！！！";
+          document.body.appendChild(finalMessage);
+          document.body.style.opacity = 1;
+        },2000);
+      }
+    </script>
+  </body>
+</html>
