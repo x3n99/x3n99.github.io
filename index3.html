@@ -241,10 +241,10 @@
     </style>
   </head>
   <body>
+    <audio autoplay loop>
+      <source src="https://x3n99.github.io/Blessing%E6%B7%B1%E6%A0%B9.mp3" type="audio/mp3">
+    </audio>
     <div class="gudetama-container">
-      <audio autoplay loop>
-        <source src="https://x3n99.github.io/Blessing%E6%B7%B1%E6%A0%B9.mp3" type="audio/mpeg">
-      </audio>
       <img src="https://mystickermania.com/cdn/stickers/gudetama/gudetama-balloon-512x512.png" alt="Gudetama" class="gudetama-image">
       <p class="gudetama-text">HAPPY BIRTHDAY!!!</p>
       <button class="gudetama-button" onclick="gudetamaWish()">ここ押して</button>
@@ -257,6 +257,11 @@
     <div class="fireworks"></div>
 
     <script>
+    function playMusic(){
+      var audio = new Audio('https://x3n99.github.io/Blessing%E6%B7%B1%E6%A0%B9.mp3');
+      audio.play();
+    }
+
       const fireworks = document.querySelector('.fireworks');
       let fireworkCount = 0;
       const maxFireworks = 1;
@@ -314,10 +319,6 @@
         return colors[Math.floor(Math.random() * colors.length)];
       }
       setInterval(createBalloon, 500);
-      const audio = document.querySelector('audio');
-      window.addEventListener('load', () => {
-        audio.play();
-      });
 
       let wishIndex = 0;
       const wishes = [
