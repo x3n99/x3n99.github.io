@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>awokwok</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-primary: #111827;
+      --text-secondary: #6b7280;
+      --card-bg: #f9fafb;
+      --card-shadow: rgba(0, 0, 0, 0.05);
+      --btn-bg: #111827;
+      --btn-text: #ffffff;
+      --btn-hover-bg: #374151;
+      --border-radius: 0.75rem;
+      --max-width: 1200px;
+      --transition-duration: 0.3s;
+    }
+
+    /* Reset & base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-primary);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Container */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* Header / Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--bg-color);
+      box-shadow: 0 2px 4px var(--card-shadow);
+      z-index: 1000;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      user-select: none;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: var(--border-radius);
+      transition: color var(--transition-duration);
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      color: var(--btn-bg);
+      outline: none;
+    }
+
+    /* Main card */
+    main {
+      background: var(--card-bg);
+      box-shadow: 0 8px 24px var(--card-shadow);
+      border-radius: var(--border-radius);
+      padding: 4rem 3rem;
+      max-width: 480px;
+      width: 100%;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    /* Headline */
+    h1 {
+      font-weight: 800;
+      font-size: 3.5rem;
+      margin: 0 0 1rem 0;
+      color: var(--text-primary);
+      line-height: 1.1;
+    }
+
+    /* Subtext */
+    p {
+      font-weight: 600;
+      font-size: 1.125rem;
+      margin: 0 0 2.5rem 0;
+      color: var(--text-secondary);
+    }
+
+    /* Button */
+    .btn-refresh {
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      font-weight: 600;
+      font-size: 1.125rem;
+      border: none;
+      border-radius: var(--border-radius);
+      padding: 0.75rem 2rem;
+      cursor: pointer;
+      transition:
+        background-color var(--transition-duration),
+        transform var(--transition-duration);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      user-select: none;
+    }
+
+    .btn-refresh:hover,
+    .btn-refresh:focus-visible {
+      background-color: var(--btn-hover-bg);
+      outline: none;
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.75rem;
+      }
+      main {
+        padding: 3rem 2rem;
+        max-width: 90vw;
+      }
+      .btn-refresh {
+        width: 100%;
+        padding: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <div class="logo" aria-label="Site Logo">HEHEHE</div>
+    <nav role="navigation" aria-label="Primary Navigation">
+      <a href="index.html" aria-current="page">Home</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <main role="main" aria-labelledby="main-heading">
+      <h1 id="main-heading">It’s still nothing here</h1>
+      <p>Awokwokwok</p>
+      <button class="btn-refresh" type="button" aria-label="Refresh page" onclick="location.reload()">Refresh</button>
+    </main>
+  </div>
+</body>
+</html>
+
