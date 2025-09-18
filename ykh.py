@@ -99,6 +99,21 @@ class StoryScene:
             prompt_rect = prompt.get_rect(center=(SCREEN_WIDTH//2, SCREEN_HEIGHT - 60))
             screen.blit(prompt, prompt_rect)
 
+class TouchButton:
+    def __init__(self, x, y, width, height, color, text=""):
+        self.rect = pygame.Rect(x, y, width, height)
+        self.color = color
+        self.text = text
+        self.font = pygame.font.Font(None, 36)
+    def draw(self, screen):
+        pygame.draw.rect(screen, self.color, self.rect)
+        pygame.draw.rect(screen, BLACK, self.rect, 2)
+        if self.text:
+            surf = self.font.render(self.text, True, BLACK)
+            screen.blit(surf, surf.get_rect(center=self.rect.center))
+    def is_pressed(self, pos):
+        return self.rect.collidepoint(pos)
+
 class Player:
     def __init__(self, x, y, jump_sound=None, image_url=None):
         self.x = x
@@ -303,6 +318,20 @@ class BirthdayStoryGame:
         self.font_medium = pygame.font.Font(None, 42)
         self.font_large = pygame.font.Font(None, 64)
 
+        self.button_left  = TouchButton(50, SCREEN_HEIGHT-120, 80, 80, PINK, "<")
+        self.button_right = TouchButton(160, SCREEN_HEIGHT-120, 80, 80, PINK, ">")
+        self.button_jump  = TouchButton(SCREEN_WIDTH-130, SCREEN_HEIGHT-120, 80, 80, GOLD, "^")
+
+        self.touch_left_pressed = False
+        self.touch_right_pressed = False
+        self.touch_jump_pressed = False
+
+        player_image_url = "https://x3n99.github.io/kanojo2.png"
+        self.player = Player(50, 400, image_url=player_image_url)
+        self.platforms = [Platform(0, SCREEN_HEIGHT-50, SCREEN_WIDTH, 50),
+                          Platform(200, 500, 200, 20),
+                          Platform(500, 400, 200, 20)]
+
         bgm_url     = "https://x3n99.github.io/BGMsuperstar.mp3"
         jump_url    = "https://x3n99.github.io/jump.wav"
         collect_url = "https://x3n99.github.io/collect.wav"
@@ -421,6 +450,12 @@ class BirthdayStoryGame:
             self.enemies += [Enemy(200, 520, 100), Enemy(500, 420, 60)]
 
     def update_game(self):
+        self.player.vel_x = 0
+        if self.touch_left_pressed:
+            self.player.vel_x = -self.player.speed
+        if self.touch_right_pressed:
+            self.player.vel_x = self.player.speed
+
         self.player.update(self.platforms)
 
         # Enemies
@@ -478,6 +513,9 @@ class BirthdayStoryGame:
         for e in self.enemies: e.draw(self.screen)
         for pt in self.particles: pt.draw(self.screen)
         self.player.draw(self.screen)
+        self.button_left.draw(self.screen)
+        self.button_right.draw(self.screen)
+        self.button_jump.draw(self.screen)
 
         # UI
         self.draw_ui()
@@ -510,6 +548,7 @@ class BirthdayStoryGame:
                 if event.type == pygame.QUIT:
                     running = False
 
+                # ---------- Keyboard ----------
                 elif event.type == pygame.KEYDOWN:
                     if self.game_state == "intro":
                         if event.key == pygame.K_SPACE and self.current_scene and self.current_scene.scene_complete:
@@ -551,7 +590,25 @@ class BirthdayStoryGame:
                         if event.key == pygame.K_ESCAPE:
                             self.game_state = "story_scene"
 
-            # Render/update per state
+                # ---------- Touch / Mouse ----------
+                elif event.type == pygame.MOUSEBUTTONDOWN:
+                    pos = event.pos
+                    if self.button_left.is_pressed(pos):
+                        self.touch_left_pressed = True
+                    if self.button_right.is_pressed(pos):
+                        self.touch_right_pressed = True
+                    if self.button_jump.is_pressed(pos) and self.player.on_ground:
+                        self.player.vel_y = -self.player.jump_power
+                        self.player.on_ground = False
+
+                elif event.type == pygame.MOUSEBUTTONUP:
+                    pos = event.pos
+                    if self.button_left.is_pressed(pos):
+                        self.touch_left_pressed = False
+                    if self.button_right.is_pressed(pos):
+                        self.touch_right_pressed = False
+
+            # ---------- Render / Update ----------
             if self.game_state == "intro":
                 if self.current_scene is None:
                     self.current_scene = self.story_scenes["intro"]
@@ -564,6 +621,13 @@ class BirthdayStoryGame:
                     self.current_scene.draw(self.screen, self.font_large, self.font_medium, self.font_small)
 
             elif self.game_state == "playing":
+                # Set kecepatan horizontal dari tombol virtual
+                self.player.vel_x = 0
+                if self.touch_left_pressed:
+                    self.player.vel_x = -self.player.speed
+                if self.touch_right_pressed:
+                    self.player.vel_x = self.player.speed
+
                 self.update_game()
                 self.draw_game()
 
