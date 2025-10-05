@@ -138,6 +138,18 @@ const portfolioData = [
         description: 'Custom illustration for a fantasy novel cover, combining character and environment elements to capture the story essence.',
         category: 'Illustration',
         image: 'https://x3n99.github.io/9109e6463e754e05d27c514c0fa0fb42.png'
+    },
+    {
+        title: 'Chibi',
+        description: "I'm able to illustrate chibi art for original characters and any characters of the sort that you would like me to draw :>",
+        category: 'Chibi',
+        image: 'https://x3n99.github.io/9109e6463e754e05d27c514c0fa0fb42.png'
+    },
+    {
+        title: 'Emote',
+        description: "Commission emotes or stickers you'd like for Twitch or YouTube!.",
+        category: 'Emote',
+        image: 'https://x3n99.github.io/9109e6463e754e05d27c514c0fa0fb42.png'
     }
 ];
 
