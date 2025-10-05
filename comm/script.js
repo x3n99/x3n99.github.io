@@ -163,18 +163,25 @@ function openCommissionForm(packageType) {
 // Close Modal
 const closeModalBtns = document.querySelectorAll('.close-modal');
 closeModalBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        portfolioModal.style.display = 'none';
-        commissionModal.style.display = 'none';
+    btn.addEventListener('click', function() {
+        document.getElementById('portfolioModal').style.display = 'none';
+        document.getElementById('commissionModal').style.display = 'none';
         document.body.style.overflow = 'auto';
     });
 });
 
-// Close modal when clicking outside
-window.addEventListener('click', (e) => {
-    if (e.target === portfolioModal || e.target === commissionModal) {
-        portfolioModal.style.display = 'none';
+// Close modal ketika klik di luar
+window.addEventListener('click', function(e) {
+    const commissionModal = document.getElementById('commissionModal');
+    const portfolioModal = document.getElementById('portfolioModal');
+    
+    if (e.target === commissionModal) {
         commissionModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+    
+    if (e.target === portfolioModal) {
+        portfolioModal.style.display = 'none';
         document.body.style.overflow = 'auto';
     }
 });
@@ -200,24 +207,44 @@ contactForm.addEventListener('submit', (e) => {
 
 // Commission Form Submission
 const commissionForm = document.getElementById('commissionForm');
-commissionForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Simulate form submission
-    const submitBtn = commissionForm.querySelector('.btn');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Submitting...';
-    submitBtn.disabled = true;
 
-    setTimeout(() => {
-        alert('Commission request submitted successfully! I will contact you within 24 hours.');
-        commissionForm.reset();
-        commissionModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    }, 1500);
-});
+if (commissionForm) {
+    commissionForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Ambil data form
+        const packageType = document.getElementById('packageType').value;
+        const formData = new FormData(this);
+        
+        // Animasi submit button
+        const submitBtn = this.querySelector('.btn-primary');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Submitting...';
+        submitBtn.disabled = true;
+
+        // Simulasi pengiriman (ganti dengan API endpoint real jika ada)
+        setTimeout(() => {
+            // Alert sukses
+            alert(`✅ Commission Request Submitted!\n\nPackage: ${packageType}\n\nThank you! We will contact you within 24 hours.`);
+            
+            // Reset form
+            commissionForm.reset();
+            
+            // Tutup modal
+            const commissionModal = document.getElementById('commissionModal');
+            commissionModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Reset button
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            
+            // Optional: Kirim ke email menggunakan formsubmit.co atau emailjs
+            // window.location.href = `mailto:artist@example.com?subject=Commission Request - ${packageType}`;
+            
+        }, 1500);
+    });
+}
 
 // Newsletter Form
 const newsletterForm = document.querySelector('.newsletter-form');
@@ -358,10 +385,10 @@ portfolioItems.forEach(item => {
 });
 
 // Keyboard navigation for modals
-document.addEventListener('keydown', (e) => {
+document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
-        portfolioModal.style.display = 'none';
-        commissionModal.style.display = 'none';
+        document.getElementById('commissionModal').style.display = 'none';
+        document.getElementById('portfolioModal').style.display = 'none';
         document.body.style.overflow = 'auto';
     }
 });
