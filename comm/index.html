@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hukei Commission</title>
-    <link rel="stylesheet" href="https://x3n99.github.io/comm/styles.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -70,14 +70,6 @@
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-check-circle"></i>
-                            <span>Fast Delivery</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Mantap</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
                             <span>Custom Designs</span>
                         </div>
                     </div>
@@ -105,6 +97,8 @@
                 <button class="filter-btn" data-filter="portrait">Portrait</button>
                 <button class="filter-btn" data-filter="illustration">Illustration</button>
                 <button class="filter-btn" data-filter="concept">Concept Art</button>
+                <button class="filter-btn" data-filter="chibi">Chibi</button>
+                <button class="filter-btn" data-filter="emote">Emote</button>
             </div>
 
             <div class="portfolio-grid">
@@ -154,6 +148,22 @@
                         <h3>Illustration</h3>
                         <p>Book Cover</p>
                         <button class="view-btn" onclick="openModal(5)">View Details</button>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="chibi">
+                    <img src="https://x3n99.github.io/9109e6463e754e05d27c514c0fa0fb42.png" alt="Portfolio 7">
+                    <div class="portfolio-overlay">
+                        <h3>Chibi</h3>
+                        <p>Chibi Character</p>
+                        <button class="view-btn" onclick="openModal(6)">View Details</button>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="emote">
+                    <img src="https://x3n99.github.io/9109e6463e754e05d27c514c0fa0fb42.png" alt="Portfolio 8">
+                    <div class="portfolio-overlay">
+                        <h3>Emote</h3>
+                        <p>Emote For Youtube Or Twitch</p>
+                        <button class="view-btn" onclick="openModal(7)">View Details</button>
                     </div>
                 </div>
             </div>
@@ -206,7 +216,7 @@
                         <li><i class="fas fa-check"></i> Detailed Background</li>
                         <li><i class="fas fa-check"></i> 3 Revisions</li>
                         <li><i class="fas fa-check"></i> 5-7 Days Delivery</li>
-                        <li><i class="fas fa-check"></i> High Resolution</li>
+                        <li><i class="fas fa-check"></i> High Resolution + PSD</li>
                     </ul>
                     <button class="btn btn-primary" onclick="openCommissionForm('Standard')">Order Now</button>
                 </div>
@@ -415,7 +425,6 @@
         </div>
     </div>
 
-    <script src="https://x3n99.github.io/comm/script.js"></script>
+    <script src="script.js"></script>
 </body>
-
 </html>
