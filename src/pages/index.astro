@@ -2,37 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Hero from "../components/Hero.astro";
-
-const musicTracks = [
-	{
-		number: "01",
-		title: "Song Title",
-		artist: "XEN — Cover",
-		artwork: "/images/hero-dummy.jpg",
-		url: "#"
-	},
-	{
-		number: "02",
-		title: "Another Song",
-		artist: "XEN — Cover",
-		artwork: "/images/profile-dummy.jpg",
-		url: "#"
-	},
-	{
-		number: "03",
-		title: "Unknown Title",
-		artist: "XEN — Cover",
-		artwork: "/images/hero-dummy.jpg",
-		url: "#"
-	},
-	{
-		number: "04",
-		title: "Untitled",
-		artist: "XEN — Cover",
-		artwork: "/images/profile-dummy.jpg",
-		url: "#"
-	}
-];
+import { musicTracks } from "../data/music.ts";
 ---
 
 <Layout title="XEN">
@@ -81,7 +51,7 @@ const musicTracks = [
 
 					<div class="profile-image-wrap">
 						<img
-							src="/images/profile-dummy.jpg"
+							src="/images/xenhalf.jpg"
 							alt="XEN profile artwork"
 							class="profile-image"
 						/>
@@ -118,7 +88,7 @@ const musicTracks = [
 							musicTracks.map((track) => (
 
 								<a
-									href={track.url}
+									href={`/music/${track.slug}`}
 									class="track-item"
 									data-art={track.artwork}
 									data-cursor="OPEN"

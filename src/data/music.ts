@@ -1,12 +1,12 @@
 export const musicTracks = [
     {
-        slug: "song-title",
+        slug: "silence",
         number: "01",
-        title: "Song Title",
+        title: "Silence",
         artist: "XEN",
         type: "COVER",
 
-        audio: "/audio/song-title.mp3",
+        audio: "/audio/silence.m4a",
         artwork: "/images/hero-dummy.jpg",
         duration: "03:42",
 
@@ -22,19 +22,19 @@ export const musicTracks = [
 
         links: {
             smule: "",
-            youtube: "https://youtu.be/X8njjHdF1go?si=3AieZvqz6mF9brwt",
+            youtube: "/coming-soon",
         },
     },
 
     {
-        slug: "another-song",
+        slug: "garando",
         number: "02",
-        title: "Another Song",
+        title: "Garando",
         artist: "XEN",
         type: "COVER",
 
-        audio: "/audio/another-song.mp3",
-        artwork: "/images/another-song.jpg",
+        audio: "/audio/garando.m4a",
+        artwork: "/images/hero-dummy.jpg",
         duration: "04:10",
 
         description:
@@ -49,19 +49,19 @@ export const musicTracks = [
 
         links: {
             smule: "",
-            youtube: "",
+            youtube: "/coming-soon",
         },
     },
 
     {
-        slug: "unknown-title",
+        slug: "sarishinohara",
         number: "03",
-        title: "Unknown Title",
+        title: "Sarishinohara",
         artist: "XEN",
         type: "COVER",
 
-        audio: "/audio/unknown-title.mp3",
-        artwork: "/images/unknown-title.jpg",
+        audio: "/audio/sarishinohara.m4a",
+        artwork: "/images/hero-dummy.jpg",
         duration: "03:30",
 
         description:
@@ -76,19 +76,19 @@ export const musicTracks = [
 
         links: {
             smule: "",
-            youtube: "",
+            youtube: "/coming-soon",
         },
     },
 
     {
-        slug: "untitled",
+        slug: "villian",
         number: "04",
-        title: "Untitled",
+        title: "Villian",
         artist: "XEN",
         type: "COVER",
 
-        audio: "/audio/untitled.mp3",
-        artwork: "/images/untitled.jpg",
+        audio: "/audio/villian.m4a",
+        artwork: "/images/hero-dummy.jpg",
         duration: "03:00",
 
         description:
@@ -103,7 +103,7 @@ export const musicTracks = [
 
         links: {
             smule: "",
-            youtube: "",
+            youtube: "/coming-soon",
         },
     },
 ];
