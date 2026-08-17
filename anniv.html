@@ -1,0 +1,560 @@
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>❤︎</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Great+Vibes&family=Roboto:wght@400;700&display=swap');
+
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+
+  body {
+    background: linear-gradient(135deg, #ffdde1 0%, #ee9ca7 100%);
+    font-family: 'Roboto', sans-serif;
+    color: #311b1b;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+  }
+
+  header {
+    margin-top: 40px;
+    text-align: center;
+    user-select: none;
+  }
+
+  header h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    color: #8b0000;
+    text-shadow: 0 2px 5px rgba(255, 153, 153, 0.7);
+    letter-spacing: 4px;
+    margin-bottom: 5px;
+    animation: pulse 3s infinite alternate;
+  }
+
+  header h3 {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.8rem;
+    color: #702626cc;
+    margin-bottom: 20px;
+  }
+
+  @keyframes pulse {
+    0% { text-shadow: 0 2px 5px rgba(255, 153, 153, 0.7);}
+    50% { text-shadow: 0 0 25px rgba(255, 105, 180, 0.9);}
+    100% { text-shadow: 0 2px 5px rgba(255, 153, 153, 0.7);}
+  }
+
+  /* Gift box container */
+  .gift-container {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin-bottom: 40px;
+    cursor: pointer;
+    perspective: 800px;
+    user-select: none;
+    outline: none;
+  }
+
+  /* Box base */
+  .box-base {
+    position: absolute;
+    width: 220px;
+    height: 180px;
+    background: linear-gradient(145deg, #d4344b, #a32334);
+    border-radius: 20px 20px 25px 25px;
+    box-shadow: inset 0 4px 6px #b52445, 0 10px 15px #9c1f37;
+    bottom: 0;
+  }
+
+  /* Box lid */
+  .box-lid {
+    position: absolute;
+    width: 240px;
+    height: 60px;
+    background: linear-gradient(135deg, #ff5e75, #b7243d);
+    border-radius: 25px 25px 0 0;
+    box-shadow: inset 0 3px 10px #ff869d, 0 5px 20px #a21836;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) translateZ(0);
+    transform-origin: bottom center;
+    transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    z-index: 2;
+  }
+
+  /* Ribbon */
+  .ribbon-vertical {
+    position: absolute;
+    left: 50%;
+    width: 35px;
+    height: 180px;
+    background: linear-gradient(180deg, #f7b2bb, #ce577b);
+    border-radius: 30px;
+    top: 40px;
+    transform: translateX(-50%);
+    box-shadow: inset 0 2px 5px #d65d70;
+  }
+  .ribbon-horizontal {
+    position: absolute;
+    top: 75px;
+    width: 220px;
+    height: 35px;
+    background: linear-gradient(90deg, #f7b2bb, #ce577b);
+    border-radius: 30px;
+    left: 0;
+    box-shadow: inset 0 2px 5px #d65d70;
+  }
+
+  /* Lid open state */
+  .gift-container.open .box-lid {
+    transform: translateX(-50%) translateZ(0) rotateX(-110deg);
+    transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  /* Content revealed on open */
+  .content-reveal {
+    max-width: 700px;
+    background: #ffe6ebdd;
+    font-family: 'Great Vibes', cursive;
+    color: #90001a;
+    font-size: 1.7rem;
+    line-height: 1.5;
+    text-align: center;
+    border-radius: 20px;
+    padding: 30px 30px;
+    box-shadow: 0 0 30px #ff416ccc;
+    opacity: 0;
+    transform: translateY(40px);
+    pointer-events: none;
+    transition: opacity 1.2s ease 0.8s, transform 1.2s ease 0.8s;
+    user-select: text;
+    margin-bottom: 60px;
+  }
+
+  .gift-container.open ~ .content-reveal {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* Timeline Container */
+  .timeline-container {
+    width: 90%;
+    max-width: 900px;
+    background: #fff0f3dd;
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 0 25px #ff577f88;
+    margin-bottom: 40px;
+    user-select: none;
+  }
+
+  .timeline-title {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.8rem;
+    color: #a6364f;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .slide {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #502434;
+  }
+
+  .slide.active {
+    display: flex;
+  }
+
+  .slide img {
+    max-width: 300px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px #ff3366bb;
+    margin-bottom: 20px;
+  }
+
+  .slide p {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.5;
+    max-width: 600px;
+    margin-bottom: 10px;
+  }
+
+  .controls {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 10px;
+  }
+
+  .btn {
+    background: #ff6b81;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    padding: 12px 25px;
+    font-size: 1.15rem;
+    cursor: pointer;
+    box-shadow: 0 5px 15px #ff466188;
+    user-select: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px #ff2960aa;
+  }
+
+  .btn:hover {
+    background: #ff3b5c;
+  }
+
+  /* Message Section */
+  .message-section {
+    background: #ffe6ebdd;
+    max-width: 700px;
+    padding: 25px 30px;
+    border-radius: 25px;
+    box-shadow: 0 0 20px #ff6b81bb;
+    font-family: 'Great Vibes', cursive;
+    color: #90001a;
+    font-size: 1.8rem;
+    line-height: 1.6;
+    text-align: center;
+    user-select: none;
+    margin-bottom: 50px;
+  }
+
+  /* Heart animation container */
+  .hearts-container {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    overflow: visible;
+  }
+
+  .heart {
+    position: absolute;
+    bottom: -50px;
+    width: 25px;
+    height: 25px;
+    background: #ff3b6c;
+    transform: rotate(45deg);
+    animation: floatUp linear forwards;
+  }
+
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: #ff3b6c;
+    border-radius: 50%;
+  }
+
+  .heart::before {
+    top: -12.5px;
+    left: 0;
+  }
+
+  .heart::after {
+    left: 12.5px;
+    top: 0;
+  }
+
+  @keyframes floatUp {
+    0% {
+      bottom: -50px;
+      opacity: 1;
+      transform: rotate(45deg) scale(1);
+    }
+    100% {
+      bottom: 100vh;
+      opacity: 0;
+      transform: rotate(45deg) scale(1.5);
+    }
+  }
+
+  /* Confetti */
+  .confetti-piece {
+    position: fixed;
+    width: 10px;
+    height: 8px;
+    background-color: #ff5678;
+    opacity: 0.9;
+    z-index: 999;
+    animation: confettiFall linear forwards;
+  }
+
+  @keyframes confettiFall {
+    0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+
+  /* Music Control */
+  #music-control {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #ff4b69;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    padding: 12px 18px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 5px 15px #ff2746cc;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  #music-control:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px #ff1841cc;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    header h1 {
+      font-size: 2.8rem;
+    }
+    header h3 {
+      font-size: 1.2rem;
+    }
+    .timeline-title {
+      font-size: 2rem;
+    }
+    .slide img {
+      max-width: 90%;
+    }
+    .message-section {
+      font-size: 1.3rem;
+      max-width: 90%;
+      padding: 20px;
+    }
+    .gift-container {
+      width: 180px;
+      height: 180px;
+    }
+    .box-base {
+      width: 180px;
+      height: 140px;
+    }
+    .box-lid {
+      width: 195px;
+      height: 50px;
+    }
+    .ribbon-vertical {
+      height: 140px;
+      width: 25px;
+      top: 30px;
+    }
+    .ribbon-horizontal {
+      width: 180px;
+      height: 25px;
+      top: 60px;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Happy Anniversary, My Love!</h1>
+</header>
+
+<!-- Gift Box -->
+<div class="gift-container" role="button" tabindex="0" aria-pressed="false" aria-label="Gift box, click or press enter to open or close" aria-expanded="false" id="giftBox">
+  <div class="box-lid"></div>
+  <div class="box-base"></div>
+  <div class="ribbon-vertical"></div>
+  <div class="ribbon-horizontal"></div>
+</div>
+
+<div class="content-reveal" aria-live="polite" id="giftMessage" hidden>
+  To my dearest love,<br><br>
+  Just like this gift box opening, every moment with you unwraps new joy and happiness. 
+  Here's to our beautiful journey and so many more chapters yet to come.
+  Every moment spent with you is my favorite. Here's to a lifetime more of love, laughter, and happiness. I love you more than words can say. 💕
+</div>
+
+<div class="timeline-container" aria-label="Special moments timeline" id="timelineSection">
+  <h2 class="timeline-title"></h2>
+  <div class="slide active" aria-live="polite">
+    <p>Sayangku Cintaku, Happy 1 Year Anniversary!</p>
+  </div>
+  <div class="slide">
+    <p>ここまで来たね、一年ってあっという間だね</p>
+  </div>
+  <div class="slide">
+    <p>いろいろあったね、 笑い、涙</p>
+  </div>
+  <div class="slide">
+    <p>未熟とバカな俺を許してね</p>
+  </div>
+  <div class="slide">
+    <p>いつもありがとう!</p>
+  </div>
+    <div class="slide">
+    <p>これからもよろしくね</p>
+  </div>
+  <div class="slide">
+    <img src="https://x3n99.github.io/9109e6463e754e05d27c514c0fa0fb42.png" alt="gudetama" />
+    <p>愛してる！</p>
+  </div>
+  <div class="controls" role="group" aria-label="Timeline navigation">
+    <button class="btn" id="prevBtn" aria-label="Previous moment">&lt; Prev</button>
+    <button class="btn" id="nextBtn" aria-label="Next moment">Next &gt;</button>
+  </div>
+</div>
+
+<div class="hearts-container" aria-hidden="true"></div>
+
+<button id="music-control" aria-pressed="false" aria-label="Toggle background music">
+  ▶️ Play Music
+</button>
+
+<audio id="bg-music" loop>
+  <source src="https://x3n99.github.io/%E3%80%90%E6%A5%BD%E8%AD%9C%E3%81%82%E3%82%8A%E3%80%91%E6%84%9B%E5%94%84%20GReeeeN%EF%BC%88%E3%83%94%E3%82%A2%E3%83%8E%E3%82%BD%E3%83%AD%E4%B8%AD%E7%B4%9A%EF%BD%9E%E4%B8%8A%E7%B4%9A%EF%BC%89%E3%80%90%E3%83%94%E3%82%A2%E3%83%8E%E3%82%A2%E3%83%AC%E3%83%B3%E3%82%B8%E6%A5%BD%E8%AD%9C%E3%80%91.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+<!-- Add this inside your <body> near other audio elements -->
+<audio id="open-sound" preload="auto" src="https://freesound.org/data/previews/256/256113_3263906-lq.mp3"></audio>
+
+
+<script>
+  // Timeline control
+  const slides = document.querySelectorAll('.slide');
+  let currentIndex = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(currentIndex);
+  });
+
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+  });
+
+  // Hearts animation
+  const heartsContainer = document.querySelector('.hearts-container');
+
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = (3 + Math.random() * 3) + 's';
+    heart.style.opacity = Math.random() * 0.7 + 0.3;
+    heartsContainer.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 6000);
+  }
+
+  setInterval(createHeart, 300);
+
+  // Confetti pieces
+  function createConfetti() {
+    const confettiColors = ['#ff5678', '#ffd6e8', '#ff9aa2', '#ff6f91', '#ff3b5c'];
+    const confetti = document.createElement('div');
+    confetti.classList.add('confetti-piece');
+    confetti.style.left = Math.random() * window.innerWidth + 'px';
+    confetti.style.backgroundColor = confettiColors[Math.floor(Math.random()*confettiColors.length)];
+    confetti.style.animationDuration = (2 + Math.random() * 3) + 's';
+    confetti.style.width = (5 + Math.random() * 7) + 'px';
+    confetti.style.height = (5 + Math.random() * 7) + 'px';
+    confetti.style.opacity = Math.random() * 0.8 + 0.3;
+    document.body.appendChild(confetti);
+
+    confetti.addEventListener('animationend', () => {
+      confetti.remove();
+    });
+  }
+
+  setInterval(createConfetti, 400);
+
+  // Music Control
+  const musicControl = document.getElementById('music-control');
+  const bgMusic = document.getElementById('bg-music');
+  musicControl.addEventListener('click', () => {
+    if (bgMusic.paused) {
+      bgMusic.play();
+      musicControl.textContent = '⏸️ Pause Music';
+      musicControl.setAttribute('aria-pressed', 'true');
+    } else {
+      bgMusic.pause();
+      musicControl.textContent = '▶️ Play Music';
+      musicControl.setAttribute('aria-pressed', 'false');
+    }
+  });
+
+  // Auto-play music on user interaction for mobile compatibility
+  document.body.addEventListener('click', () => {
+    if(bgMusic.paused){
+      bgMusic.play();
+      musicControl.textContent = '⏸️ Pause Music';
+      musicControl.setAttribute('aria-pressed', 'true');
+    }
+  }, {once:true, capture:true});
+
+  // Gift box open/close interaction
+  const giftBox = document.getElementById('giftBox');
+  const giftMessage = document.getElementById('giftMessage');
+  const timelineSection = document.getElementById('timelineSection');
+  const openSound = document.getElementById('open-sound');
+
+  function toggleGiftBox() {
+    const isOpen = giftBox.classList.toggle('open');
+    giftBox.setAttribute('aria-pressed', isOpen.toString());
+    giftBox.setAttribute('aria-expanded', isOpen.toString());
+    if(isOpen) {
+      openSound.currentTime = 0;
+      openSound.play();
+      giftMessage.removeAttribute('hidden');
+      // Scroll to gift message smoothly
+      giftMessage.scrollIntoView({behavior: 'smooth', block: 'center'});
+      // Optionally hide timeline when gift open
+      timelineSection.style.display = 'none';
+    } else {
+      giftMessage.setAttribute('hidden', '');
+      timelineSection.style.display = 'block';
+      giftBox.focus();
+    }
+  }
+
+  giftBox.addEventListener('click', toggleGiftBox);
+  giftBox.addEventListener('keydown', e => {
+    if(e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleGiftBox();
+    }
+  });
+
+</script>
+</body>
+</html>
