@@ -2210,28 +2210,43 @@ const pageTransition =
 if (pageTransition) {
 
     /* -----------------------------------------
-       INITIAL LOAD
+       RESET TRANSITION
     ----------------------------------------- */
 
-    pageTransition.classList.add(
-        "no-transition"
-    );
+    const resetPageTransition = () => {
 
-    pageTransition.classList.add(
-        "is-ready"
-    );
+        pageTransition.classList.remove(
+            "is-leaving"
+        );
 
-    requestAnimationFrame(() => {
+        pageTransition.classList.add(
+            "is-ready"
+        );
+
+        pageTransition.classList.add(
+            "no-transition"
+        );
 
         requestAnimationFrame(() => {
 
-            pageTransition.classList.remove(
-                "no-transition"
-            );
+            requestAnimationFrame(() => {
+
+                pageTransition.classList.remove(
+                    "no-transition"
+                );
+
+            });
 
         });
 
-    });
+    };
+
+
+    /* -----------------------------------------
+       INITIAL LOAD
+    ----------------------------------------- */
+
+    resetPageTransition();
 
 
     /* -----------------------------------------
@@ -2289,19 +2304,37 @@ if (pageTransition) {
                     );
 
 
-                    const isMobile = window.matchMedia(
-                        "(max-width: 768px)"
-                    ).matches;
+                    const isMobile =
+                        window.matchMedia(
+                            "(max-width: 768px)"
+                        ).matches;
+
 
                     setTimeout(() => {
+
                         window.location.href =
                             link.href;
+
                     }, isMobile ? 400 : 650);
 
                 }
             );
 
         });
+
+
+    /* -----------------------------------------
+       BACK / FORWARD
+    ----------------------------------------- */
+
+    window.addEventListener(
+        "pageshow",
+        () => {
+
+            resetPageTransition();
+
+        }
+    );
 
 }
 // =========================================
