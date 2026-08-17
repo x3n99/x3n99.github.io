@@ -1,0 +1,499 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import { musicTracks } from "../../data/music";
+
+export function getStaticPaths() {
+    return musicTracks.map((track) => ({
+        params: {
+            slug: track.slug,
+        },
+        props: {
+            track,
+        },
+    }));
+}
+
+const { track } = Astro.props;
+---
+
+<Layout title={`${track.title} — XEN`}>
+
+    <Navbar />
+
+    <main class="song-detail-page">
+
+        <!-- =========================================
+             SONG HERO
+        ========================================= -->
+
+        <section class="song-detail-hero">
+
+            <div class="song-detail-meta">
+
+                <span>
+                    {track.number}
+                </span>
+
+                <span>
+                    MUSIC
+                </span>
+
+            </div>
+
+
+            <div class="song-detail-content">
+
+                <!-- ARTWORK -->
+
+                <div class="song-detail-artwork">
+
+                    <img
+                        src={track.artwork}
+                        alt={`${track.title} artwork`}
+                    />
+
+                </div>
+
+
+                <!-- INFO -->
+
+                <div class="song-detail-info">
+
+                    <span class="song-detail-type">
+                        {track.type}
+                    </span>
+
+                    <h1 class="song-detail-title">
+                        {track.title}<span>.</span>
+                    </h1>
+
+                    <span class="song-detail-artist">
+                        {track.artist}
+                    </span>
+
+                    <p class="song-detail-description">
+                        {track.description}
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             PLAYER
+        ========================================= -->
+
+        <section class="song-detail-player-section">
+
+            <div class="song-detail-player">
+
+                <button
+                    type="button"
+                    id="songPlayButton"
+                    class="song-play-button"
+                    aria-label="Play song"
+                >
+                    <i class="fa-solid fa-play"></i>
+                </button>
+
+
+                <div class="song-player-info">
+
+                    <span>
+                        {track.number}
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            {track.title}
+                        </h2>
+
+                        <p>
+                            {track.artist}
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="song-player-progress">
+
+                    <span id="songCurrentTime">
+                        00:00
+                    </span>
+
+                    <input
+                        type="range"
+                        id="songProgress"
+                        min="0"
+                        max="100"
+                        value="0"
+                        step="0.1"
+                    />
+
+                    <span id="songDuration">
+                        00:00
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <audio
+                id="songAudio"
+                src={track.audio}
+                preload="metadata"
+            ></audio>
+
+        </section>
+
+
+        <!-- =========================================
+             CREDITS
+        ========================================= -->
+
+        <section class="song-detail-credits">
+
+            <div class="song-detail-section-heading">
+
+                <span>
+                    01
+                </span>
+
+                <span>
+                    CREDITS
+                </span>
+
+            </div>
+
+
+            <div class="song-credits-grid">
+
+                <div class="song-credit">
+
+                    <span>
+                        ORIGINAL ARTIST
+                    </span>
+
+                    <strong>
+                        {track.credits.originalArtist}
+                    </strong>
+
+                </div>
+
+
+                <div class="song-credit">
+
+                    <span>
+                        COMPOSER
+                    </span>
+
+                    <strong>
+                        {track.credits.composer}
+                    </strong>
+
+                </div>
+
+
+                <div class="song-credit">
+
+                    <span>
+                        VOCAL
+                    </span>
+
+                    <strong>
+                        {track.credits.vocalist}
+                    </strong>
+
+                </div>
+
+
+                <div class="song-credit">
+
+                    <span>
+                        MIXING
+                    </span>
+
+                    <strong>
+                        {track.credits.mixing}
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             LINKS
+        ========================================= -->
+
+        <section class="song-detail-links">
+
+            <div class="song-detail-section-heading">
+
+                <span>
+                    02
+                </span>
+
+                <span>
+                    LISTEN / WATCH
+                </span>
+
+            </div>
+
+
+            <div class="song-links">
+
+                {
+                    track.links.smule && (
+                        <a
+                            href={track.links.smule}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            data-cursor="SMULE"
+                        >
+                            SMULE
+                            <span>↗</span>
+                        </a>
+                    )
+                }
+
+
+                {
+                    track.links.youtube && (
+                        <a
+                            href={track.links.youtube}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            data-cursor="YOUTUBE"
+                        >
+                            YOUTUBE
+                            <span>↗</span>
+                        </a>
+                    )
+                }
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             FOOTER
+        ========================================= -->
+
+        <div class="song-detail-footer">
+
+            <a
+                href="/music"
+                class="text-link"
+            >
+                <span>
+                    ← BACK TO MUSIC
+                </span>
+            </a>
+
+            <span>
+                XEN / {track.number}
+            </span>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================================
+         PLAYER SCRIPT
+    ========================================= -->
+
+    <script>
+        const audio =
+            document.querySelector("#songAudio");
+
+        const playButton =
+            document.querySelector("#songPlayButton");
+
+        const progress =
+            document.querySelector("#songProgress");
+
+        const currentTime =
+            document.querySelector("#songCurrentTime");
+
+        const duration =
+            document.querySelector("#songDuration");
+
+
+        const formatTime = (seconds) => {
+
+            if (!Number.isFinite(seconds)) {
+                return "00:00";
+            }
+
+            const minutes =
+                Math.floor(seconds / 60);
+
+            const remaining =
+                Math.floor(seconds % 60);
+
+            return `${String(minutes).padStart(2, "0")}:${String(
+                remaining
+            ).padStart(2, "0")}`;
+
+        };
+
+
+        playButton?.addEventListener(
+            "click",
+            async () => {
+
+                if (!audio) return;
+
+
+                if (audio.paused) {
+
+                    try {
+
+                        await audio.play();
+
+                    } catch (error) {
+
+                        console.error(
+                            "Unable to play audio:",
+                            error
+                        );
+
+                    }
+
+                } else {
+
+                    audio.pause();
+
+                }
+
+            }
+        );
+
+
+        audio?.addEventListener(
+            "play",
+            () => {
+
+                if (!playButton) return;
+
+                playButton.innerHTML =
+                    '<i class="fa-solid fa-pause"></i>';
+
+                playButton.setAttribute(
+                    "aria-label",
+                    "Pause song"
+                );
+
+            }
+        );
+
+
+        audio?.addEventListener(
+            "pause",
+            () => {
+
+                if (!playButton) return;
+
+                playButton.innerHTML =
+                    '<i class="fa-solid fa-play"></i>';
+
+                playButton.setAttribute(
+                    "aria-label",
+                    "Play song"
+                );
+
+            }
+        );
+
+
+        audio?.addEventListener(
+            "loadedmetadata",
+            () => {
+
+                if (!duration) return;
+
+                duration.textContent =
+                    formatTime(audio.duration);
+
+                if (progress) {
+                    progress.max =
+                        audio.duration;
+                }
+
+            }
+        );
+
+
+        audio?.addEventListener(
+            "timeupdate",
+            () => {
+
+                if (currentTime) {
+
+                    currentTime.textContent =
+                        formatTime(
+                            audio.currentTime
+                        );
+
+                }
+
+                if (progress) {
+
+                    progress.value =
+                        audio.currentTime;
+
+                }
+
+            }
+        );
+
+
+        progress?.addEventListener(
+            "input",
+            () => {
+
+                if (!audio) return;
+
+                audio.currentTime =
+                    Number(progress.value);
+
+            }
+        );
+
+
+        audio?.addEventListener(
+            "ended",
+            () => {
+
+                if (!playButton) return;
+
+                playButton.innerHTML =
+                    '<i class="fa-solid fa-play"></i>';
+
+                playButton.setAttribute(
+                    "aria-label",
+                    "Play song"
+                );
+
+                if (progress) {
+                    progress.value = 0;
+                }
+
+            }
+        );
+    </script>
+
+</Layout>

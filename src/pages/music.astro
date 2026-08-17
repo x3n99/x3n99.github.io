@@ -1,0 +1,207 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import { musicTracks } from "../data/music";
+---
+
+<Layout title="Music — XEN">
+
+    <Navbar />
+
+    <main class="music-page">
+
+        <!-- =========================================
+             MUSIC HERO
+        ========================================= -->
+
+        <section class="music-page-hero">
+
+            <div class="music-page-meta">
+                <span>02</span>
+                <span>MUSIC</span>
+            </div>
+
+            <div class="music-page-title-wrap">
+
+                <span class="music-page-kicker">
+                    SELECTED WORKS
+                </span>
+
+                <h1 class="music-page-title">
+                    Music<span>.</span>
+                </h1>
+
+            </div>
+
+            <div class="music-page-note">
+                VOICE / SOUND / CREATION
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             TRACK LIST
+        ========================================= -->
+
+        <section class="music-page-list">
+
+            {
+                musicTracks.map((track) => (
+                    <div
+                        class="music-page-track"
+                        data-art={track.artwork}
+                        data-audio={track.audio}
+                        data-title={track.title}
+                        data-artist={track.artist}
+                        data-number={track.number}
+                    >
+
+                        <span class="music-page-number">
+                            {track.number}
+                        </span>
+
+
+                        <div class="music-page-info">
+
+                            <span class="music-page-type">
+                                {track.type}
+                            </span>
+
+                            <h2>
+                                {track.title}
+                            </h2>
+
+                            <span class="music-page-artist">
+                                {track.artist}
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="music-page-play"
+                            data-play-track
+                            aria-label={`Play ${track.title}`}
+                        >
+                            <i class="fa-solid fa-play"></i>
+                        </button>
+
+
+                        <a
+                            href={`/music/${track.slug}`}
+                            class="music-page-arrow"
+                            data-cursor="DETAIL"
+                            aria-label={`View ${track.title} details`}
+                        >
+                            ↗
+                        </a>
+
+                    </div>
+                ))
+            }
+
+        </section>
+
+        <div class="music-player" id="musicPlayer">
+
+            <div class="music-player-artwork">
+
+                <img
+                    id="musicPlayerArtwork"
+                    src="/images/hero-dummy.jpg"
+                    alt="XEN music artwork"
+                />
+
+            </div>
+
+
+            <div class="music-player-info">
+
+                <span
+                    class="music-player-number"
+                    id="musicPlayerNumber"
+                >
+                    01
+                </span>
+
+                <div>
+
+                    <h3 id="musicPlayerTitle">
+                        Select a track
+                    </h3>
+
+                    <span id="musicPlayerArtist">
+                        XEN
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="music-player-toggle"
+                id="musicPlayerToggle"
+                aria-label="Play music"
+            >
+                <i class="fa-solid fa-play"></i>
+            </button>
+
+
+            <div class="music-player-progress">
+
+                <span id="musicPlayerCurrent">
+                    00:00
+                </span>
+
+                <input
+                    type="range"
+                    id="musicPlayerProgress"
+                    min="0"
+                    max="100"
+                    value="0"
+                    step="0.1"
+                />
+
+                <span id="musicPlayerDuration">
+                    00:00
+                </span>
+
+            </div>
+            
+            <button
+                type="button"
+                class="music-player-close"
+                id="musicPlayerClose"
+                aria-label="Close music player"
+            >
+                ×
+            </button>
+
+            <audio id="musicAudio"></audio>
+
+        </div>
+
+
+        <!-- =========================================
+             FOOTNOTE
+        ========================================= -->
+
+        <div class="music-page-note-bottom">
+
+            <span>
+                MUSIC / XEN
+            </span>
+
+            <span>
+                2026
+            </span>
+
+        </div>
+
+    </main>
+
+</Layout>

@@ -1,0 +1,587 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Hero from "../components/Hero.astro";
+
+const musicTracks = [
+	{
+		number: "01",
+		title: "Song Title",
+		artist: "XEN — Cover",
+		artwork: "/images/hero-dummy.jpg",
+		url: "#"
+	},
+	{
+		number: "02",
+		title: "Another Song",
+		artist: "XEN — Cover",
+		artwork: "/images/profile-dummy.jpg",
+		url: "#"
+	},
+	{
+		number: "03",
+		title: "Unknown Title",
+		artist: "XEN — Cover",
+		artwork: "/images/hero-dummy.jpg",
+		url: "#"
+	},
+	{
+		number: "04",
+		title: "Untitled",
+		artist: "XEN — Cover",
+		artwork: "/images/profile-dummy.jpg",
+		url: "#"
+	}
+];
+---
+
+<Layout title="XEN">
+    <Navbar />
+
+    <main>
+        <Hero />
+
+        <section class="intro" id="profile">
+			<div class="profile-watermark">X</div>
+
+			<div class="intro-inner">
+				<div class="profile-heading">
+					<span class="section-number">01</span>
+					<span class="section-rule"></span>
+					<span class="section-label">Profile</span>
+				</div>
+
+				<div class="profile-grid">
+					<div class="profile-title-wrap">
+						<h2 class="intro-title">
+							A voice<br />
+							in the dark<span>.</span>
+						</h2>
+					</div>
+
+					<div class="profile-copy">
+						<p>
+							Xen is a mysterious vampire with a passion for singing.
+						</p>
+
+						<p>
+							Despite his dark and otherworldly nature, he finds comfort and joy in music, 
+							often expressing his emotions through his voice.
+						</p>
+
+						<p>
+							Through music, Xen creates a space where darkness, emotion and melody meet.
+						</p>
+
+						<a href="/profile" class="text-link">
+							<span>View More</span>
+							<span class="text-link-arrow">→</span>
+						</a>
+					</div>
+
+					<div class="profile-image-wrap">
+						<img
+							src="/images/profile-dummy.jpg"
+							alt="XEN profile artwork"
+							class="profile-image"
+						/>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="music-section dark" id="music">
+
+			<div class="music-inner">
+
+				<div class="music-header">
+
+					<div class="section-meta">
+						<span>02</span>
+						<span>Music</span>
+					</div>
+
+					<span class="music-header-note">
+						Selected Works
+					</span>
+
+				</div>
+
+
+				<div class="music-layout">
+
+					<!-- TRACK LIST -->
+
+					<div class="track-list">
+
+						{
+							musicTracks.map((track) => (
+
+								<a
+									href={track.url}
+									class="track-item"
+									data-art={track.artwork}
+									data-cursor="OPEN"
+								>
+
+									<span class="track-number">
+										{track.number}
+									</span>
+
+
+									<div class="track-info">
+
+										<h3>
+											{track.title}
+										</h3>
+
+										<p>
+											{track.artist}
+										</p>
+
+									</div>
+
+
+									<span class="track-arrow">
+										↗
+									</span>
+
+								</a>
+
+							))
+						}
+
+					</div>
+
+
+					<!-- MUSIC PREVIEW -->
+
+					<div class="music-preview">
+
+						<div class="music-preview-frame">
+
+							<img
+								src={musicTracks[0].artwork}
+								alt={`${musicTracks[0].title} artwork`}
+								id="musicPreviewImage"
+							/>
+
+							<div class="music-preview-overlay">
+
+								<span>
+									PREVIEW
+								</span>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+				<div class="section-view-more">
+
+					<a
+						href="/music"
+						data-cursor="OPEN"
+					>
+						<span>VIEW MORE</span>
+						<span>↗</span>
+					</a>
+
+				</div>
+
+			</div>
+
+		</section>
+
+		<section class="video-section" id="video">
+			<div class="video-inner">
+
+				<div class="video-header">
+
+					<div class="section-meta">
+						<span>03</span>
+						<span>Video</span>
+					</div>
+
+					<span class="video-note">
+						Visual Archive
+					</span>
+
+				</div>
+
+
+				<div class="video-main">
+
+					<!-- VIDEO PREVIEW -->
+
+					<div class="video-stage">
+
+						<img
+							id="videoPreviewImage"
+							src="/images/hero-dummy.jpg"
+							alt="XEN video preview"
+						/>
+
+						<div class="video-stage-overlay"></div>
+
+						<button
+							class="video-play"
+							type="button"
+							aria-label="Play video"
+							data-cursor="PLAY"
+						>
+							<span>▶</span>
+						</button>
+
+						<div class="video-stage-info">
+							<span id="videoPreviewNumber">
+								01
+							</span>
+
+							<span id="videoPreviewType">
+								MUSIC VIDEO
+							</span>
+						</div>
+
+					</div>
+
+
+					<!-- VIDEO LIST -->
+
+					<div class="video-list">
+
+						<button
+							class="video-item active"
+							type="button"
+							data-video="01"
+							data-type="MUSIC VIDEO"
+							data-art="/images/hero-dummy.jpg"
+							data-video-url="https://www.youtube.com/embed/X8njjHdF1go"
+							data-cursor="OPEN"
+						>
+							<span class="video-number">
+								01
+							</span>
+
+							<span class="video-title">
+								Song Title
+							</span>
+
+							<span class="video-arrow">
+								↗
+							</span>
+						</button>
+
+
+						<button
+							class="video-item"
+							type="button"
+							data-video="02"
+							data-type="MUSIC VIDEO"
+							data-art="/images/profile-dummy.jpg"
+							data-video-url="https://www.youtube.com/embed/VIDEO_ID_01"
+							data-cursor="OPEN"
+						>
+							<span class="video-number">
+								02
+							</span>
+
+							<span class="video-title">
+								Another Song
+							</span>
+
+							<span class="video-arrow">
+								↗
+							</span>
+						</button>
+
+
+						<button
+							class="video-item"
+							type="button"
+							data-video="03"
+							data-type="MUSIC VIDEO"
+							data-art="/images/hero-dummy.jpg"
+							data-video-url="https://www.youtube.com/embed/VIDEO_ID_01"
+							data-cursor="OPEN"
+						>
+							<span class="video-number">
+								03
+							</span>
+
+							<span class="video-title">
+								Unknown Title
+							</span>
+
+							<span class="video-arrow">
+								↗
+							</span>
+						</button>
+
+
+						<button
+							class="video-item"
+							type="button"
+							data-video="04"
+							data-type="MUSIC VIDEO"
+							data-art="/images/profile-dummy.jpg"
+							data-video-url="https://www.youtube.com/embed/VIDEO_ID_01"
+							data-cursor="OPEN"
+						>
+							<span class="video-number">
+								04
+							</span>
+
+							<span class="video-title">
+								Untitled
+							</span>
+
+							<span class="video-arrow">
+								↗
+							</span>
+						</button>
+
+					</div>
+
+				</div>
+				<div class="video-view-more">
+
+					<a
+						href="/video"
+						data-cursor="OPEN"
+					>
+						<span>VIEW MORE</span>
+						<span>↗</span>
+					</a>
+
+				</div>
+
+			</div>
+		</section>
+
+		<section class="schedule-section" id="schedule">
+
+			<div class="schedule-bg-year">
+				2026
+			</div>
+
+			<div class="schedule-inner">
+
+				<div class="schedule-header">
+
+					<div class="section-meta">
+						<span>04</span>
+						<span>Schedule</span>
+					</div>
+
+					<span class="schedule-note">
+						Upcoming
+					</span>
+
+				</div>
+
+
+				<div class="schedule-list">
+
+					<!-- EVENT 01 -->
+
+					<div class="schedule-item">
+
+						<div class="schedule-date">
+
+							<span class="schedule-month">
+								AUG
+							</span>
+
+							<span class="schedule-day">
+								22
+							</span>
+
+							<span class="schedule-weekday">
+								SATURDAY
+							</span>
+
+						</div>
+
+
+						<div class="schedule-info">
+
+							<span class="schedule-type">
+								DON'T KNOW
+							</span>
+
+							<h3>
+								Unschedule
+							</h3>
+
+							<span class="schedule-time">
+								00:00
+							</span>
+
+						</div>
+
+
+						<div class="schedule-arrow">
+							↗
+						</div>
+
+					</div>
+
+
+					<!-- EVENT 02 -->
+
+					<div class="schedule-item">
+
+						<div class="schedule-date">
+
+							<span class="schedule-month">
+								SEP
+							</span>
+
+							<span class="schedule-day">
+								03
+							</span>
+
+							<span class="schedule-weekday">
+								THURSDAY
+							</span>
+
+						</div>
+
+
+						<div class="schedule-info">
+
+							<span class="schedule-type">
+								DON'T KNOW
+							</span>
+
+							<h3>
+								Unschedule
+							</h3>
+
+							<span class="schedule-time">
+								00:00
+							</span>
+
+						</div>
+
+
+						<div class="schedule-arrow">
+							↗
+						</div>
+
+					</div>
+
+
+					<!-- EVENT 03 -->
+
+					<div class="schedule-item">
+
+						<div class="schedule-date">
+
+							<span class="schedule-month">
+								SEP
+							</span>
+
+							<span class="schedule-day">
+								19
+							</span>
+
+							<span class="schedule-weekday">
+								SATURDAY
+							</span>
+
+						</div>
+
+
+						<div class="schedule-info">
+
+							<span class="schedule-type">
+								BIRTHDAY
+							</span>
+
+							<h3>
+								Kahi Tanjoubi
+							</h3>
+
+							<span class="schedule-time">
+								00:00
+							</span>
+
+						</div>
+
+
+						<div class="schedule-arrow">
+							↗
+						</div>
+
+					</div>
+
+
+					<!-- EVENT 04 -->
+
+					<div class="schedule-item">
+
+						<div class="schedule-date">
+
+							<span class="schedule-month">
+								OCT
+							</span>
+
+							<span class="schedule-day">
+								05
+							</span>
+
+							<span class="schedule-weekday">
+								MONDAY
+							</span>
+
+						</div>
+
+
+						<div class="schedule-info">
+
+							<span class="schedule-type">
+								DON'T KNOW
+							</span>
+
+							<h3>
+								Unschedule
+							</h3>
+
+							<span class="schedule-time">
+								00:00
+							</span>
+
+						</div>
+
+
+						<div class="schedule-arrow">
+							↗
+						</div>
+
+					</div>
+
+				</div>
+
+
+				<div class="schedule-footer">
+
+					<span>
+						All dates are subject to change.
+					</span>
+
+					<a href="/schedule">
+						VIEW ALL →
+					</a>
+
+				</div>
+
+			</div>
+
+		</section>
+
+    </main>
+</Layout>

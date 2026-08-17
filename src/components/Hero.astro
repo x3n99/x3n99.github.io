@@ -1,0 +1,102 @@
+<section class="hero" id="home">
+    <div class="hero-background"></div>
+
+    <div class="hero-art-wrap">
+        <img
+            src="/images/hero-dummy.jpg"
+            alt="XEN artwork"
+            class="hero-art-image"
+        />
+    </div>
+
+    <div class="hero-content">
+        <p class="hero-eyebrow">
+            <span class="eyebrow-line"></span>
+            Official Website
+        </p>
+
+        <h1 class="hero-title">
+            <span class="hero-x">X</span>
+            <span class="hero-en">EN</span>
+        </h1>
+    </div>
+
+    <div class="section-dots" aria-label="Page sections">
+        <a href="#home" class="section-dot active" data-cursor="HOME">
+            <span>01</span>
+        </a>
+
+        <a href="#profile" class="section-dot" data-cursor="PROFILE">
+            <span>02</span>
+        </a>
+
+        <a href="#music" class="section-dot" data-cursor="MUSIC">
+            <span>03</span>
+        </a>
+
+        <a href="#video" class="section-dot" data-cursor="VIDEO">
+            <span>04</span>
+        </a>
+
+        <a href="#schedule" class="section-dot" data-cursor="SCHEDULE">
+            <span>05</span>
+        </a>
+    </div>
+</section>
+
+<script>
+    const hero = document.querySelector(".hero");
+    const heroArt = document.querySelector(".hero-art-image");
+
+    if (hero && heroArt) {
+        hero.addEventListener("mousemove", (event) => {
+            const rect = hero.getBoundingClientRect();
+
+            const x = (event.clientX - rect.left) / rect.width - 0.5;
+            const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+            heroArt.style.transform = `
+                translate3d(${x * -18}px, ${y * -12}px, 0)
+                scale(1.06)
+            `;
+        });
+
+        hero.addEventListener("mouseleave", () => {
+            heroArt.style.transform =
+                "translate3d(0, 0, 0) scale(1.06)";
+        });
+    }
+
+    const sections = document.querySelectorAll(
+        "section[id]"
+    );
+
+    const dots = document.querySelectorAll(
+        ".section-dot"
+    );
+
+    const sectionObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+
+                dots.forEach((dot) => {
+                    dot.classList.remove("active");
+                });
+
+                const activeDot = document.querySelector(
+                    `.section-dot[href="#${entry.target.id}"]`
+                );
+
+                activeDot?.classList.add("active");
+            });
+        },
+        {
+            threshold: 0.45
+        }
+    );
+
+    sections.forEach((section) => {
+        sectionObserver.observe(section);
+    });
+</script>

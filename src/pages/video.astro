@@ -1,0 +1,191 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+---
+
+<Layout title="Video — XEN">
+
+    <Navbar />
+
+    <main class="video-page">
+
+        <!-- =========================================
+             VIDEO HERO
+        ========================================= -->
+
+        <section class="video-page-hero">
+
+            <div class="video-page-meta">
+                <span>03</span>
+                <span>VIDEO</span>
+            </div>
+
+            <div class="video-page-title-wrap">
+
+                <span class="video-page-kicker">
+                    SELECTED VIDEOS
+                </span>
+
+                <h1 class="video-page-title">
+                    Video<span>.</span>
+                </h1>
+
+            </div>
+
+            <div class="video-page-note">
+                PERFORMANCE / COVER / CREATION
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             VIDEO LIST
+        ========================================= -->
+
+        <section class="video-page-list">
+
+            <article
+                class="video-page-item"
+                data-video-id="X8njjHdF1go"
+            >
+
+                <div class="video-page-thumbnail">
+
+                    <img
+                        src="https://img.youtube.com/vi/X8njjHdF1go/maxresdefault.jpg"
+                        alt="Song Title"
+                        loading="lazy"
+                    />
+
+                    <div class="video-page-play">
+                        <span>PLAY</span>
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+
+                </div>
+
+                <div class="video-page-info">
+
+                    <span class="video-page-type">
+                        COVER
+                    </span>
+
+                    <h2>
+                        Song Title
+                    </h2>
+
+                    <span class="video-page-artist">
+                        XEN
+                    </span>
+
+                </div>
+
+                <span class="video-page-number">
+                    01
+                </span>
+
+            </article>
+
+
+            <article
+                class="video-page-item"
+                data-video-id="X8njjHdF1go"
+            >
+
+                <div class="video-page-thumbnail">
+
+                    <img
+                        src="https://img.youtube.com/vi/X8njjHdF1go/maxresdefault.jpg"
+                        alt="Another Song"
+                        loading="lazy"
+                    />
+
+                    <div class="video-page-play">
+                        <span>PLAY</span>
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+
+                </div>
+
+                <div class="video-page-info">
+
+                    <span class="video-page-type">
+                        COVER
+                    </span>
+
+                    <h2>
+                        Another Song
+                    </h2>
+
+                    <span class="video-page-artist">
+                        XEN
+                    </span>
+
+                </div>
+
+                <span class="video-page-number">
+                    02
+                </span>
+
+            </article>
+
+        </section>
+
+
+        <!-- =========================================
+             FOOTNOTE
+        ========================================= -->
+
+        <div class="video-page-note-bottom">
+
+            <span>
+                VIDEO / XEN
+            </span>
+
+            <span>
+                2026
+            </span>
+
+        </div>
+
+        <div
+            class="video-page-modal"
+            id="videoPageModal"
+        >
+
+            <button
+                class="video-page-modal-close"
+                id="videoPageModalClose"
+                type="button"
+                aria-label="Close video"
+            >
+                ×
+            </button>
+
+            <div class="video-page-player">
+
+                <iframe
+                    id="videoPagePlayer"
+                    src=""
+                    title="XEN Video Player"
+                    frameborder="0"
+                    allow="
+                        accelerometer;
+                        autoplay;
+                        clipboard-write;
+                        encrypted-media;
+                        gyroscope;
+                        picture-in-picture;
+                        web-share
+                    "
+                    allowfullscreen
+                ></iframe>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</Layout>
