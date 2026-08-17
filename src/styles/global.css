@@ -119,15 +119,15 @@ body.page-ready .site-header {
     color: #F4F2EE;
     text-shadow: 0 0 18px rgba(155, 17, 30, 0.18);
     align-items: center;
-    gap: 10px;
+    gap: 2px;
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 0.18em;
 }
 
 .logo img {
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
     object-fit: contain;
 }
 
@@ -5753,6 +5753,28 @@ html.loader-already-shown body .page-loader {
     font-size: 1.4rem;
 
     font-weight: 400;
+}
+.song-credit a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    font-family: var(--font-display);
+
+    font-size: 1.4rem;
+
+    font-weight: 400;
+
+    transition: color 0.3s ease;
+}
+
+.song-credit a:hover {
+    color: #9b111e;
+}
+
+.song-credit a span {
+    font-size: 15px;
+    opacity: 0.6;
 }
 
 

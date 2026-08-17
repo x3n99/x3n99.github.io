@@ -85,7 +85,7 @@ import { musicTracks } from "../data/music.ts";
 					<div class="track-list">
 
 						{
-							musicTracks.map((track) => (
+							musicTracks.slice(0, 4).map((track) => (
 
 								<a
 									href={`/music/${track.slug}`}
@@ -392,11 +392,6 @@ import { musicTracks } from "../data/music.ts";
 
 						</div>
 
-
-						<div class="schedule-arrow">
-							↗
-						</div>
-
 					</div>
 
 
@@ -435,11 +430,6 @@ import { musicTracks } from "../data/music.ts";
 								00:00
 							</span>
 
-						</div>
-
-
-						<div class="schedule-arrow">
-							↗
 						</div>
 
 					</div>
@@ -482,11 +472,6 @@ import { musicTracks } from "../data/music.ts";
 
 						</div>
 
-
-						<div class="schedule-arrow">
-							↗
-						</div>
-
 					</div>
 
 
@@ -525,11 +510,6 @@ import { musicTracks } from "../data/music.ts";
 								00:00
 							</span>
 
-						</div>
-
-
-						<div class="schedule-arrow">
-							↗
 						</div>
 
 					</div>

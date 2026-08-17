@@ -182,9 +182,13 @@ const { track } = Astro.props;
                         ORIGINAL ARTIST
                     </span>
 
-                    <strong>
-                        {track.credits.originalArtist}
-                    </strong>
+                    <a
+                        href={track.credits.originalArtistUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {track.credits.originalArtist}<span>↗</span>
+                    </a>
 
                 </div>
 
@@ -194,10 +198,14 @@ const { track } = Astro.props;
                     <span>
                         COMPOSER
                     </span>
-
-                    <strong>
-                        {track.credits.composer}
-                    </strong>
+                    
+                    <a
+                        href={track.credits.composerUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {track.credits.composer}<span>↗</span>
+                    </a>
 
                 </div>
 
