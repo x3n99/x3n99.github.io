@@ -114,13 +114,25 @@ body.page-ready .site-header {
 }
 
 .logo {
+    display: inline-flex;
     text-decoration: none;
     color: #F4F2EE;
     text-shadow: 0 0 18px rgba(155, 17, 30, 0.18);
-
+    align-items: center;
+    gap: 10px;
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 0.18em;
+}
+
+.logo img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.logo span {
+    display: inline-block;
 }
 
 .nav-right {
