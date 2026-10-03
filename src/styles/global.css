@@ -4066,6 +4066,27 @@ html.loader-already-shown body .page-loader {
     color: #9b111e;
 }
 
+.about-image {
+    margin-top: 60px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.about-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    object-fit: cover;
+
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+}
+
+.about-image img:hover {
+    filter: grayscale(0%);
+}
+
 .about-text {
     max-width: 480px;
 }
