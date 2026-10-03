@@ -60,7 +60,7 @@ export const musicTracks = [
     {
         slug: "sarishinohara",
         number: "03",
-        title: "サリシノハラ(Sarishinohara)",
+        title: "サリシノハラ(Sarishinohara) cover",
         artist: "XEN",
         type: "COVER",
 
@@ -205,7 +205,7 @@ export const musicTracks = [
     {
         slug: "sen-no-tsubasa",
         number: "08",
-        title: "Sen no Tsubasa (千の翼) cover",
+        title: "千の翼 (Sen no Tsubasa) cover",
         artist: "XEN",
         type: "COVER",
 
