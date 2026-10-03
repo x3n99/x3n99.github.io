@@ -2,7 +2,7 @@ export const musicTracks = [
     {
         slug: "silence",
         number: "01",
-        title: "×(Silence)",
+        title: "×(Silence) cover",
         artist: "XEN",
         type: "COVER",
 
@@ -31,7 +31,7 @@ export const musicTracks = [
     {
         slug: "garando",
         number: "02",
-        title: "ガランド(Garando)",
+        title: "ガランド(Garando) cover",
         artist: "XEN",
         type: "COVER",
 
@@ -89,7 +89,7 @@ export const musicTracks = [
     {
         slug: "villain",
         number: "04",
-        title: "ヴィラン(Villain)",
+        title: "ヴィラン(Villain) cover",
         artist: "XEN",
         type: "COVER",
 
@@ -118,7 +118,7 @@ export const musicTracks = [
     {
         slug: "casino",
         number: "05",
-        title: "Casino",
+        title: "Casino cover",
         artist: "XEN",
         type: "COVER",
 
@@ -147,7 +147,7 @@ export const musicTracks = [
     {
         slug: "shadow",
         number: "06",
-        title: "Shadow Shadow",
+        title: "Shadow cover",
         artist: "XEN",
         type: "COVER",
 
@@ -176,7 +176,7 @@ export const musicTracks = [
     {
         slug: "blackout",
         number: "07",
-        title: "Blackout",
+        title: "Blackout cover",
         artist: "XEN",
         type: "COVER",
 
@@ -205,7 +205,7 @@ export const musicTracks = [
     {
         slug: "sen-no-tsubasa",
         number: "08",
-        title: "Sen no Tsubasa",
+        title: "Sen no Tsubasa (千の翼) cover",
         artist: "XEN",
         type: "COVER",
 
@@ -234,7 +234,7 @@ export const musicTracks = [
     {
         slug: "genie",
         number: "09",
-        title: "ジェニ(Genie)",
+        title: "ジェニ(Genie) cover",
         artist: "XEN",
         type: "COVER",
 
