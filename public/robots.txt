@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://x3n99.github.io/sitemap-index.xml
