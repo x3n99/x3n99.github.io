@@ -1,262 +1,262 @@
 export const musicTracks = [
-    {
-        slug: "silence",
-        number: "01",
-        title: "×(Silence) cover",
-        artist: "XEN",
-        type: "COVER",
+  {
+    slug: "silence",
+    number: "01",
+    title: "×(Silence) cover",
+    artist: "XEN",
+    type: "COVER",
 
-        audio: "/audio/silence.m4a",
-        artwork: "/images/silence.jpg",
-        duration: "03:42",
+    audio: "/audio/silence.m4a",
+    artwork: "/images/silence.jpg",
+    duration: "03:42",
 
-        description:
-            "A cover performed by XEN.",
+    description:
+      "A cover performed by XEN.",
 
-        credits: {
-            originalArtist: "xea",
-            originalArtistUrl:"https://www.youtube.com/@xea",
-            composer: "吐息(Toiki)",
-            composerUrl: "https://www.youtube.com/@vf_ie0",
-            vocalist: "XEN",
-            mixing: "smule",
-        },
-
-        links: {
-            smule: "https://www.smule.com/recording/toiki-feat-xea-silence/2061457629_5193315312",
-            youtube: "/coming-soon",
-        },
+    credits: {
+      originalArtist: "xea",
+      originalArtistUrl: "https://www.youtube.com/@xea",
+      composer: "吐息(Toiki)",
+      composerUrl: "https://www.youtube.com/@vf_ie0",
+      vocalist: "XEN",
+      mixing: "smule",
     },
 
-    {
-        slug: "garando",
-        number: "02",
-        title: "ガランド(Garando) cover",
-        artist: "XEN",
-        type: "COVER",
+    links: {
+      smule: "https://www.smule.com/recording/toiki-feat-xea-silence/2061457629_5193315312",
+      youtube: "/coming-soon",
+    },
+  },
 
-        audio: "/audio/garando.m4a",
-        artwork: "/images/garando.jpg",
-        duration: "04:10",
+  {
+    slug: "garando",
+    number: "02",
+    title: "ガランド(Garando) cover",
+    artist: "XEN",
+    type: "COVER",
 
-        description:
-            "A cover performed by XEN.",
+    audio: "/audio/garando.m4a",
+    artwork: "/images/garando.jpg",
+    duration: "04:10",
 
-        credits: {
-            originalArtist: "ピコン(Picon)",
-            originalArtistUrl:"https://www.youtube.com/@picon_bs",
-            composer: "ピコン(Picon)",
-            composerUrl: "https://www.youtube.com/@picon_bs",
-            vocalist: "XEN",
-            mixing: "smule",
-        },
+    description:
+      "A cover performed by XEN.",
 
-        links: {
-            smule: "https://www.smule.com/recording/picon-short-garando-%E3%82%AC%E3%83%A9%E3%83%B3%E3%83%89-airhead/2061457629_5197954614",
-            youtube: "/coming-soon",
-        },
+    credits: {
+      originalArtist: "ピコン(Picon)",
+      originalArtistUrl: "https://www.youtube.com/@picon_bs",
+      composer: "ピコン(Picon)",
+      composerUrl: "https://www.youtube.com/@picon_bs",
+      vocalist: "XEN",
+      mixing: "smule",
     },
 
-    {
-        slug: "sarishinohara",
-        number: "03",
-        title: "サリシノハラ(Sarishinohara) cover",
-        artist: "XEN",
-        type: "COVER",
+    links: {
+      smule: "https://www.smule.com/recording/picon-short-garando-%E3%82%AC%E3%83%A9%E3%83%B3%E3%83%89-airhead/2061457629_5197954614",
+      youtube: "/coming-soon",
+    },
+  },
 
-        audio: "/audio/sarishinohara.m4a",
-        artwork: "/images/sarishinohara.jpg",
-        duration: "03:30",
+  {
+    slug: "sarishinohara",
+    number: "03",
+    title: "サリシノハラ(Sarishinohara) cover",
+    artist: "XEN",
+    type: "COVER",
 
-        description:
-            "A cover performed by XEN.",
+    audio: "/audio/sarishinohara.m4a",
+    artwork: "/images/sarishinohara.jpg",
+    duration: "03:30",
 
-        credits: {
-            originalArtist: "みきとP(mikitoP)",
-            originalArtistUrl:"https://youtube.com/@mikitop",
-            composer: "みきとP(mikitoP)",
-            composerUrl: "https://youtube.com/@mikitop",
-            vocalist: "XEN",
-            mixing: "smule",
-        },
+    description:
+      "A cover performed by XEN.",
 
-        links: {
-            smule: "https://www.smule.com/recording/rib-utaite-sarishinohara/2061457629_5197942908",
-            youtube: "/coming-soon",
-        },
+    credits: {
+      originalArtist: "みきとP(mikitoP)",
+      originalArtistUrl: "https://youtube.com/@mikitop",
+      composer: "みきとP(mikitoP)",
+      composerUrl: "https://youtube.com/@mikitop",
+      vocalist: "XEN",
+      mixing: "smule",
     },
 
-    {
-        slug: "villain",
-        number: "04",
-        title: "ヴィラン(Villain) cover",
-        artist: "XEN",
-        type: "COVER",
+    links: {
+      smule: "https://www.smule.com/recording/rib-utaite-sarishinohara/2061457629_5197942908",
+      youtube: "/coming-soon",
+    },
+  },
 
-        audio: "/audio/villain.m4a",
-        artwork: "/images/villain.jpg",
-        duration: "03:00",
+  {
+    slug: "villain",
+    number: "04",
+    title: "ヴィラン(Villain) cover",
+    artist: "XEN",
+    type: "COVER",
 
-        description:
-            "A cover performed by XEN.",
+    audio: "/audio/villain.m4a",
+    artwork: "/images/villain.jpg",
+    duration: "03:00",
 
-        credits: {
-            originalArtist: "てにをは(Teniwoha)",
-            originalArtistUrl:"https://www.youtube.com/@teniwoha_official",
-            composer: "てにをは(Teniwoha)",
-            composerUrl: "https://www.youtube.com/@teniwoha_official",
-            vocalist: "XEN",
-            mixing: "smule",
-        },
+    description:
+      "A cover performed by XEN.",
 
-        links: {
-            smule: "https://www.smule.com/recording/teniwoha-romaji-%E3%83%B4%E3%82%A3%E3%83%A9%E3%83%B3-villain-short-ver/2061457629_5194025025",
-            youtube: "/coming-soon",
-        },
+    credits: {
+      originalArtist: "てにをは(Teniwoha)",
+      originalArtistUrl: "https://www.youtube.com/@teniwoha_official",
+      composer: "てにをは(Teniwoha)",
+      composerUrl: "https://www.youtube.com/@teniwoha_official",
+      vocalist: "XEN",
+      mixing: "smule",
     },
 
-    {
-        slug: "casino",
-        number: "05",
-        title: "Casino cover",
-        artist: "XEN",
-        type: "COVER",
+    links: {
+      smule: "https://www.smule.com/recording/teniwoha-romaji-%E3%83%B4%E3%82%A3%E3%83%A9%E3%83%B3-villain-short-ver/2061457629_5194025025",
+      youtube: "/coming-soon",
+    },
+  },
 
-        audio: "/audio/casino.m4a",
-        artwork: "/images/casino.jpg",
-        duration: "03:00",
+  {
+    slug: "casino",
+    number: "05",
+    title: "Casino cover",
+    artist: "XEN",
+    type: "COVER",
 
-        description:
-            "A cover performed by XEN.",
+    audio: "/audio/casino.m4a",
+    artwork: "/images/casino.jpg",
+    duration: "03:00",
 
-        credits: {
-            originalArtist: "Azari",
-            originalArtistUrl:"https://www.youtube.com/@xxxAzari",
-            composer: "Azari",
-            composerUrl: "https://www.youtube.com/@xxxAzari",
-            vocalist: "XEN",
-            mixing: "smule",
-        },
+    description:
+      "A cover performed by XEN.",
 
-        links: {
-            smule: "https://www.smule.com/recording/azari-flower-casino/2061457629_5176129135",
-            youtube: "/coming-soon",
-        },
+    credits: {
+      originalArtist: "Azari",
+      originalArtistUrl: "https://www.youtube.com/@xxxAzari",
+      composer: "Azari",
+      composerUrl: "https://www.youtube.com/@xxxAzari",
+      vocalist: "XEN",
+      mixing: "smule",
     },
 
-    {
-        slug: "shadow",
-        number: "06",
-        title: "Shadow cover",
-        artist: "XEN",
-        type: "COVER",
+    links: {
+      smule: "https://www.smule.com/recording/azari-flower-casino/2061457629_5176129135",
+      youtube: "/coming-soon",
+    },
+  },
 
-        audio: "/audio/shadow.m4a",
-        artwork: "/images/shadow.webp",
-        duration: "03:00",
+  {
+    slug: "shadow",
+    number: "06",
+    title: "Shadow Shadow cover",
+    artist: "XEN",
+    type: "COVER",
 
-        description:
-            "A cover performed by XEN.",
+    audio: "/audio/shadow.m4a",
+    artwork: "/images/shadow.webp",
+    duration: "03:00",
 
-        credits: {
-            originalArtist: "Azari",
-            originalArtistUrl:"https://www.youtube.com/@xxxAzari",
-            composer: "Azari",
-            composerUrl: "https://www.youtube.com/@xxxAzari",
-            vocalist: "XEN",
-            mixing: "smule",
-        },
+    description:
+      "A cover performed by XEN.",
 
-        links: {
-            smule: "https://www.smule.com/recording/azari-shadow-shadow/2061457629_5176129161",
-            youtube: "/coming-soon",
-        },
+    credits: {
+      originalArtist: "Azari",
+      originalArtistUrl: "https://www.youtube.com/@xxxAzari",
+      composer: "Azari",
+      composerUrl: "https://www.youtube.com/@xxxAzari",
+      vocalist: "XEN",
+      mixing: "smule",
     },
 
-    {
-        slug: "blackout",
-        number: "07",
-        title: "Blackout cover",
-        artist: "XEN",
-        type: "COVER",
+    links: {
+      smule: "https://www.smule.com/recording/azari-shadow-shadow/2061457629_5176129161",
+      youtube: "/coming-soon",
+    },
+  },
 
-        audio: "/audio/blackout.m4a",
-        artwork: "/images/blackout.jpg",
-        duration: "03:00",
+  {
+    slug: "blackout",
+    number: "07",
+    title: "Blackout cover",
+    artist: "XEN",
+    type: "COVER",
 
-        description:
-            "A cover performed by XEN.",
+    audio: "/audio/blackout.m4a",
+    artwork: "/images/blackout.jpg",
+    duration: "03:00",
 
-        credits: {
-            originalArtist: "Azari",
-            originalArtistUrl:"https://www.youtube.com/@xxxAzari",
-            composer: "Azari",
-            composerUrl: "https://www.youtube.com/@xxxAzari",
-            vocalist: "XEN",
-            mixing: "smule",
-        },
+    description:
+      "A cover performed by XEN.",
 
-        links: {
-            smule: "https://www.smule.com/recording/azari-blackout-romaji/2061457629_5176128606",
-            youtube: "/coming-soon",
-        },
+    credits: {
+      originalArtist: "Azari",
+      originalArtistUrl: "https://www.youtube.com/@xxxAzari",
+      composer: "Azari",
+      composerUrl: "https://www.youtube.com/@xxxAzari",
+      vocalist: "XEN",
+      mixing: "smule",
     },
 
-    {
-        slug: "sen-no-tsubasa",
-        number: "08",
-        title: "千の翼 (Sen no Tsubasa) cover",
-        artist: "XEN",
-        type: "COVER",
+    links: {
+      smule: "https://www.smule.com/recording/azari-blackout-romaji/2061457629_5176128606",
+      youtube: "/coming-soon",
+    },
+  },
 
-        audio: "/audio/sen-no-tsubasa.m4a",
-        artwork: "/images/sen-no-tsubasa.jpg",
-        duration: "03:00",
+  {
+    slug: "sen-no-tsubasa",
+    number: "08",
+    title: "千の翼 (Sen no Tsubasa) cover",
+    artist: "XEN",
+    type: "COVER",
 
-        description:
-            "A cover performed by XEN.",
+    audio: "/audio/sen-no-tsubasa.m4a",
+    artwork: "/images/sen-no-tsubasa.jpg",
+    duration: "03:00",
 
-        credits: {
-            originalArtist: "livetune",
-            originalArtistUrl:"https://www.youtube.com/@kzlivetune",
-            composer: "livetune",
-            composerUrl: "https://www.youtube.com/@kzlivetune",
-            vocalist: "XEN",
-            mixing: "smule",
-        },
+    description:
+      "A cover performed by XEN.",
 
-        links: {
-            smule: "https://www.smule.com/recording/livetune-sen-no-tsubasa/2061457629_5167420565",
-            youtube: "/coming-soon",
-        },
+    credits: {
+      originalArtist: "livetune",
+      originalArtistUrl: "https://www.youtube.com/@kzlivetune",
+      composer: "livetune",
+      composerUrl: "https://www.youtube.com/@kzlivetune",
+      vocalist: "XEN",
+      mixing: "smule",
     },
 
-    {
-        slug: "genie",
-        number: "09",
-        title: "ジェニ(Genie) cover",
-        artist: "XEN",
-        type: "COVER",
-
-        audio: "/audio/genie.m4a",
-        artwork: "/images/genie.jpg",
-        duration: "03:00",
-
-        description:
-            "A cover performed by XEN.",
-
-        credits: {
-            originalArtist: "¿?shimon",
-            originalArtistUrl:"https://www.youtube.com/@Shimon0518",
-            composer: "¿?shimon",
-            composerUrl: "https://www.youtube.com/@Shimon0518",
-            vocalist: "XEN",
-            mixing: "smule",
-        },
-
-        links: {
-            smule: "https://www.smule.com/recording/shimon-%E3%82%B8%E3%82%A7%E3%83%8B-genie/2061457629_5162158755",
-            youtube: "/coming-soon",
-        },
+    links: {
+      smule: "https://www.smule.com/recording/livetune-sen-no-tsubasa/2061457629_5167420565",
+      youtube: "/coming-soon",
     },
+  },
+
+  {
+    slug: "genie",
+    number: "09",
+    title: "ジェニ(Genie) cover",
+    artist: "XEN",
+    type: "COVER",
+
+    audio: "/audio/genie.m4a",
+    artwork: "/images/genie.jpg",
+    duration: "03:00",
+
+    description:
+      "A cover performed by XEN.",
+
+    credits: {
+      originalArtist: "¿?shimon",
+      originalArtistUrl: "https://www.youtube.com/@Shimon0518",
+      composer: "¿?shimon",
+      composerUrl: "https://www.youtube.com/@Shimon0518",
+      vocalist: "XEN",
+      mixing: "smule",
+    },
+
+    links: {
+      smule: "https://www.smule.com/recording/shimon-%E3%82%B8%E3%82%A7%E3%83%8B-genie/2061457629_5162158755",
+      youtube: "/coming-soon",
+    },
+  },
 ];
