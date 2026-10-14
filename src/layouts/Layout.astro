@@ -3,9 +3,15 @@ import "../styles/global.css";
 
 interface Props {
   title?: string;
+  description?: string;
 }
 
-const { title = "XEN — UTAITE" } = Astro.props;
+const {
+  title = "XEN — Official Website",
+  description = "Enter the world of XEN, a mysterious vampire with a passion for singing. Explore music, profile, videos, and updates.",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -18,11 +24,37 @@ const { title = "XEN — UTAITE" } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#080808" />
-    <meta name="description" content="XEN" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="canonical" href={canonicalURL.href} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="XEN" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL.href} />
+    <meta
+      property="og:image"
+      content="https://x3n99.github.io/images/xenhalf.jpg"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta
+      name="twitter:image"
+      content="https://x3n99.github.io/images/xenhalf.jpg"
+    />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
+
+    <title>{title}</title>
+    <link rel="icon" type="image/png" href="/images/xenlogo.png" />
+
     <script is:inline>
       const loaderShown = sessionStorage.getItem("xenLoaderShown");
 
@@ -30,8 +62,6 @@ const { title = "XEN — UTAITE" } = Astro.props;
         document.documentElement.classList.add("loader-already-shown");
       }
     </script>
-    <title>{title}</title>
-    <link rel="icon" type="image/png" href="/images/xenlogo.png" />
   </head>
 
   <body>
@@ -93,7 +123,9 @@ const { title = "XEN — UTAITE" } = Astro.props;
       </div>
     </footer>
     <script>
-      const cursor = document.querySelector("#customCursor") as HTMLElement | null;
+      const cursor = document.querySelector(
+        "#customCursor",
+      ) as HTMLElement | null;
 
       if (cursor) {
         const cursorText = cursor.querySelector("span");
@@ -274,7 +306,9 @@ const { title = "XEN — UTAITE" } = Astro.props;
       }
     </script>
     <script>
-      const profileWatermark = document.querySelector(".profile-watermark") as HTMLElement | null;
+      const profileWatermark = document.querySelector(
+        ".profile-watermark",
+      ) as HTMLElement | null;
 
       const profile = document.querySelector("#profile") as HTMLElement | null;
 
