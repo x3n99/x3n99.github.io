@@ -19,7 +19,8 @@ This is a personal website built around a dark, atmospheric aesthetic. Blending 
 Astro · JavaScript · HTML · CSS
 
 ---
+Developed by <a href="https://github.com/x3n99">xen</a>
 
 <p align="center">
-  Developed by <a href="https://github.com/x3n99">xen</a>
+  <i>“Even in silence, the night has a voice.”</i>
 </p>
