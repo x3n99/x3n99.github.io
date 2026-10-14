@@ -93,7 +93,7 @@ const { title = "XEN — UTAITE" } = Astro.props;
       </div>
     </footer>
     <script>
-      const cursor = document.querySelector("#customCursor");
+      const cursor = document.querySelector("#customCursor") as HTMLElement | null;
 
       if (cursor) {
         const cursorText = cursor.querySelector("span");
@@ -104,7 +104,7 @@ const { title = "XEN — UTAITE" } = Astro.props;
 
         document.addEventListener(
           "mousemove",
-          (event) => {
+          (event: MouseEvent) => {
             cursor.style.left = `${event.clientX}px`;
 
             cursor.style.top = `${event.clientY}px`;
@@ -120,15 +120,17 @@ const { title = "XEN — UTAITE" } = Astro.props;
                 HOVER
                 ========================================= */
 
-        document.addEventListener("mouseover", (event) => {
-          const target = event.target.closest("a, button, [data-cursor]");
+        document.addEventListener("mouseover", (event: MouseEvent) => {
+          const target = (event.target as Element | null)?.closest(
+            "a, button, [data-cursor]",
+          );
 
           if (!target) return;
 
           cursor.classList.add("hover");
 
           if (cursorText) {
-            cursorText.textContent = target.dataset.cursor || "";
+            cursorText.textContent = target.getAttribute("data-cursor") || "";
           }
         });
 
@@ -136,8 +138,10 @@ const { title = "XEN — UTAITE" } = Astro.props;
                 LEAVE
                 ========================================= */
 
-        document.addEventListener("mouseout", (event) => {
-          const target = event.target.closest("a, button, [data-cursor]");
+        document.addEventListener("mouseout", (event: MouseEvent) => {
+          const target = (event.target as Element | null)?.closest(
+            "a, button, [data-cursor]",
+          );
 
           if (!target) return;
 
@@ -149,7 +153,7 @@ const { title = "XEN — UTAITE" } = Astro.props;
            * dari elemen yang sama.
            */
 
-          if (relatedTarget && target.contains(relatedTarget)) {
+          if (relatedTarget instanceof Node && target.contains(relatedTarget)) {
             return;
           }
 
@@ -270,9 +274,9 @@ const { title = "XEN — UTAITE" } = Astro.props;
       }
     </script>
     <script>
-      const profileWatermark = document.querySelector(".profile-watermark");
+      const profileWatermark = document.querySelector(".profile-watermark") as HTMLElement | null;
 
-      const profile = document.querySelector("#profile");
+      const profile = document.querySelector("#profile") as HTMLElement | null;
 
       if (profileWatermark && profile) {
         window.addEventListener(
